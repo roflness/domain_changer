@@ -9,9 +9,8 @@ df = pd.read_csv('test.csv')
 
 df = df.drop_duplicates(keep='first')
 
-df['email'] = df.email.replace(r"^(?:http)s?://", "", regex=True)
-
-df['email'] = df.email.replace(r"(/).*", "", regex=True)
+df['email'] = df.email.replace(r"^(?:http)s?://", "", regex=True) # Remove http/s from start of string
+df['email'] = df.email.replace(r"(/).*", "", regex=True) # Remove everything after first '/'
 
 
 # df = re.sub(r"(/).*", "", df)
@@ -22,7 +21,7 @@ def domain_it(df):
 def domain_type(df):
   return re.split('\.', df)[-1]
   
-func = lambda x: 100*x.count()/df.shape[0]
+func = lambda x: 100*x.count()/df.shape[0] # Used for calculating percentages for count2
   
 # df['domain'] = df['email'].apply(domain_it)
 
