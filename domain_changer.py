@@ -1,17 +1,18 @@
 # domain_changer
 
+import sys
 import csv
 import pandas as pd
 import numpy as np
 import re
 
-df = pd.read_csv('test.csv')
+df = pd.read_csv(sys.argv[1])
 
 df = df.drop_duplicates(keep='first')
 
 df['email'] = df.email.replace(r"^(?:http)s?://", "", regex=True) # Remove http/s from start of string
+df['email'] = df.email.replace(r"^(?:www)\.?", "", regex=True) # Remove www. from start of string
 df['email'] = df.email.replace(r"(/).*", "", regex=True) # Remove everything after first '/'
-
 
 # df = re.sub(r"(/).*", "", df)
 
@@ -32,5 +33,7 @@ count2 = pd.pivot_table(df, index=['domain_type'], aggfunc=func)
 
 print(count)
 print(count2)
-
+df.columns = ["email", "domain"]
 # print(df)
+
+df.to_csv('output.csv', index=False, columns=["email"], header =True)
