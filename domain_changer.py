@@ -9,6 +9,7 @@ import re
 df = pd.read_csv(sys.argv[1]+'.csv')
 
 df = df.drop_duplicates(keep='first')
+df = df.apply(lambda x: x.astype(str).str.lower())
 
 df = df[df["email"].str.contains('\.') == True]
 
