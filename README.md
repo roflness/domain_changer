@@ -1,7 +1,7 @@
 # domain_changer
 Count the type and percentage of domains included in the specified CSV file that is uploaded.
 
-# argument passed is the filename ONLY. No need to include .csv (will only accept CSV files)
+# argument passed is the filename ONLY. No need to include ".csv" (will only accept CSV files)
 # example: python domain_changer.py test
 
 Two CSV files are subsequently saved.
