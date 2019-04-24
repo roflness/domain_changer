@@ -42,4 +42,4 @@ print(count2)
 df.to_csv('output.csv', index=False, columns=["email"], header =True)
 
 count2.to_csv('percentage.csv', index=True, columns=["email"], header=["percentage"])
-# print(new_df)
+print(df)
