@@ -1,4 +1,4 @@
-# domain_changer (testing on second computer)
+# domain_changer (testing on second computer, now on first computer)
 
 import sys
 import csv
