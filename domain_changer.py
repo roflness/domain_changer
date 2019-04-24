@@ -52,5 +52,5 @@ print(count2)
 
 df.to_csv(output_file+'.csv', index=False, columns=["email"], header =True)
 
-count2.to_csv('percentage.csv', index=True, columns=["email"], header=["percentage"])
+# count2.to_csv('percentage.csv', index=True, columns=["email"], header=["percentage"])
 #print(df)
