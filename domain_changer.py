@@ -6,7 +6,15 @@ import pandas as pd
 import numpy as np
 import re
 
-df = pd.read_csv(sys.argv[1]+'.csv')
+
+if len(sys.argv) > 2:
+    filename = sys.argv[1]
+    output_file = sys.argv[2]
+else:
+    print("Error: %s needs to include name of csv file" % (sys.argv[0],))
+    sys.exit()
+
+df = pd.read_csv(filename+'.csv')
 
 df = df.drop_duplicates(keep='first')
 df = df.apply(lambda x: x.astype(str).str.lower())
@@ -39,7 +47,7 @@ print(count2)
 # df.columns = ["email", "domain"]
 # print(df)
 
-df.to_csv('output.csv', index=False, columns=["email"], header =True)
+df.to_csv(output_file+'.csv', index=False, columns=["email"], header =True)
 
 count2.to_csv('percentage.csv', index=True, columns=["email"], header=["percentage"])
-print(df)
+#print(df)
