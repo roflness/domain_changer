@@ -14,7 +14,7 @@ else:
     print("Error: %s needs to include name of csv file" % (sys.argv[0],))
     sys.exit()
 
-df = pd.read_csv(filename)
+df = pd.read_csv(filename, encoding = "ISO-8859-1")
 
 df = df.drop_duplicates(keep='first')
 df = df.apply(lambda x: x.astype(str).str.lower())
