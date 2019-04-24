@@ -19,6 +19,8 @@ df = pd.read_csv(filename)
 df = df.drop_duplicates(keep='first')
 df = df.apply(lambda x: x.astype(str).str.lower())
 
+df.columns = ['email']
+
 df = df[df["email"].str.contains('\.') == True]
 
 df['email'] = df.email.replace(r"^(?:http)s?://", "", regex=True) # Remove http/s from start of string
