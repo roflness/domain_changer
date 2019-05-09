@@ -20,11 +20,12 @@ else:
   df = pd.read_excel(filename, encoding = "ISO-8859-1")
 
 # df = pd.read_csv(filename, encoding = "ISO-8859-1")
+df.columns = ['email']
 
 df = df.drop_duplicates(keep='first')
 df = df.apply(lambda x: x.astype(str).str.lower())
 
-df.columns = ['email']
+
 
 df = df[df["email"].str.contains('\.') == True]
 
