@@ -2,6 +2,7 @@
 
 import sys
 import csv
+import xlrd
 import pandas as pd
 import numpy as np
 import re
@@ -14,11 +15,12 @@ else:
     print("Error: %s needs to include name of csv file" % (sys.argv[0],))
     sys.exit()
 
-if filename[-4:] = ".csv":
-  df = pd.read_csv(filename, encoding = "ISO-8859-1")
-else:
-  df = pd.read_excel(filename, encoding = "ISO-8859-1")
 
+df = pd.read_csv(filename, encoding = "ISO-8859-1")
+
+
+print(df)
+exit()
 # df = pd.read_csv(filename, encoding = "ISO-8859-1")
 df.columns = ['email']
 
