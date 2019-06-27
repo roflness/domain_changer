@@ -18,9 +18,6 @@ else:
 
 df = pd.read_csv(filename, encoding = "ISO-8859-1")
 
-
-print(df)
-exit()
 # df = pd.read_csv(filename, encoding = "ISO-8859-1")
 df.columns = ['email']
 
