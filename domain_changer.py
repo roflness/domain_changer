@@ -8,14 +8,15 @@ import numpy as np
 import re
 
 
-if len(sys.argv) > 2:
+if len(sys.argv) > 1:
     filename = sys.argv[1]
-    output_file = sys.argv[2]
 else:
     print("Error: %s needs to include name of csv file" % (sys.argv[0],))
     sys.exit()
 
+output_file = filename[:-4]
 
+# print(output_file)
 df = pd.read_csv(filename, encoding = "ISO-8859-1")
 
 # df = pd.read_csv(filename, encoding = "ISO-8859-1")
@@ -58,7 +59,7 @@ print(count2)
 # df.columns = ["email", "domain"]
 # print(df)
 
-df.to_csv(output_file+'.csv', index=False, columns=["email"], header =True)
+df.to_csv(output_file+'_cleant.csv', index=False, columns=["email"], header =True)
 
 # count2.to_csv('percentage.csv', index=True, columns=["email"], header=["percentage"])
 #print(df)
