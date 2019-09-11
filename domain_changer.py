@@ -29,6 +29,7 @@ df = df.apply(lambda x: x.astype(str).str.lower())
 
 df = df[df["email"].str.contains('\.') == True]
 
+df.email.replace(r"^mailto:", "", regex=True)
 df['email'] = df.email.replace(r"^(?:http)s?://", "", regex=True) # Remove http/s from start of string
 df['email'] = df.email.replace(r"^@", "", regex=True) # Remove @ symbol
 df['email'] = df.email.replace(r"^(?:www2)\.?", "", regex=True) # Remove www2. from start of string
